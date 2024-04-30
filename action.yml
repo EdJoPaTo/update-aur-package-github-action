@@ -1,0 +1,15 @@
+name: Update AUR Package
+description: Update an AUR package to the given tag version
+branding:
+  color: purple
+  icon: upload
+inputs:
+  package_name:
+    description: AUR package name
+    required: true
+  ssh_private_key:
+    description: AUR private ssh key. Generate a new one just for this purpose!
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
