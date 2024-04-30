@@ -1,0 +1,19 @@
+name: Build container
+
+on:
+  push:
+  workflow_dispatch:
+  # Build regularly to check with up to date base image
+  schedule:
+    - cron: '42 2 * * 6' # weekly on Saturday 2:42 UTC
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/build-push-action@v5
+        with:
+          platforms: linux/amd64
