@@ -7,6 +7,7 @@ RUN useradd --create-home builder \
 COPY entrypoint.sh /usr/local/bin/entrypoint
 
 WORKDIR /home/builder
+ENV PAGER cat
 USER builder
 
 RUN mkdir -p ~/.ssh \
