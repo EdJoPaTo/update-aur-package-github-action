@@ -8,7 +8,7 @@ COPY entrypoint.sh /usr/local/bin/entrypoint
 COPY known_hosts /etc/ssh/ssh_known_hosts
 
 WORKDIR /home/builder
-ENV PAGER cat
+ENV PAGER=cat
 USER builder
 
 RUN mkdir -p ~/.ssh \
