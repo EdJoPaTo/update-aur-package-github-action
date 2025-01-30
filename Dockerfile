@@ -4,7 +4,7 @@ RUN pacman -Syu --needed --noconfirm git openssh pacman-contrib
 RUN useradd --create-home builder \
 	&& echo 'builder ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/010_builder
 
-COPY entrypoint.sh /usr/local/bin/entrypoint
+COPY entrypoint.sh /usr/local/bin/update-aur-package
 COPY known_hosts /etc/ssh/ssh_known_hosts
 
 WORKDIR /home/builder
@@ -17,4 +17,4 @@ RUN mkdir -p ~/.ssh \
 	&& git config --global user.name "GitHub Actions" \
 	&& git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-CMD ["/usr/local/bin/entrypoint"]
+CMD ["/usr/local/bin/update-aur-package"]
