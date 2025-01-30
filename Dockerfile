@@ -1,4 +1,4 @@
-FROM docker.io/library/archlinux:base-devel
+FROM docker.io/library/archlinux:base-devel AS final
 RUN pacman -Syu --needed --noconfirm git openssh pacman-contrib
 
 RUN useradd --create-home builder \
